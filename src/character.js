@@ -4,6 +4,8 @@ export class Character {
     this.atk = 0;
     this.def = 0;
     this.spd = 0;
+    this.xp = 0;
+    this.lvl = 1;
   }
 
   create(specialty) {

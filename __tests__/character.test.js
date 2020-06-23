@@ -1,6 +1,6 @@
 import { Character } from './../src/character.js';
 
-describe('Character', () => {
+describe('Character Creation', () => {
   test('should correctly create a character object', () => {
     const hero = new Character("Hiro");
     expect(hero.name).toEqual("Hiro");
@@ -22,5 +22,13 @@ describe('Character', () => {
     console.log(hero2);
     console.log(hero3);
     console.log(hero4);
+  });
+});
+
+describe('Leveling Mechanics', () => {
+  test('should correctly create a character object with new stats', () => {
+    const hero = new Character("Hiro");
+    expect(hero.xp).toEqual(0);
+    expect(hero.lvl).toEqual(1);
   });
 });

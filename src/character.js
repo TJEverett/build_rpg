@@ -24,4 +24,8 @@ export class Character {
     this.atk += Math.floor(this.lvl / 2);
     this.def += Math.floor(this.lvl / 2);
   }
+
+  gainXp(enemyLevel) {
+    this.xp += (10 * enemyLevel / this.lvl);
+  }
 }

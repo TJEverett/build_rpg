@@ -39,4 +39,21 @@ describe('Leveling Mechanics', () => {
     expect(hero.atk).toEqual(1);
     expect(hero.def).toEqual(1);
   });
+
+  test('should add to the xp value of the character based on inputted enemy level', () => {
+    let hero1 = new Character("hero1");
+    hero1.gainXp(1);
+    let hero2 = new Character("hero2");
+    hero2.gainXp(2)
+    let hero3 = new Character("hero3");
+    hero3.lvl = 2;
+    hero3.gainXp(1);
+    let hero4 = new Character("hero4");
+    hero4.lvl = 2;
+    hero4.gainXp(2);
+    expect(hero1.xp).toEqual(10);
+    expect(hero2.xp).toEqual(20);
+    expect(hero3.xp).toEqual(5);
+    expect(hero4.xp).toEqual(10);
+  });
 });

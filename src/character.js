@@ -16,6 +16,12 @@ export class Character {
     }
     this.atk += (2 + Math.ceil(Math.random() * 3));
     this.def += Math.ceil(Math.random() * 3);
-    this.spd += (Math.ceil(Math.random() * 30) / 10);
+    this.spd += (Math.ceil(Math.random() * 20) / 10 + 1);
+  }
+
+  levelUp() {
+    this.lvl += 1;
+    this.atk += Math.floor(this.lvl / 2);
+    this.def += Math.floor(this.lvl / 2);
   }
 }

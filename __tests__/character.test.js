@@ -31,4 +31,12 @@ describe('Leveling Mechanics', () => {
     expect(hero.xp).toEqual(0);
     expect(hero.lvl).toEqual(1);
   });
+
+  test('should level up the character and increase their atk, def, and lvl properties', () => {
+    let hero = new Character("Hiro");
+    hero.levelUp();
+    expect(hero.lvl).toEqual(2);
+    expect(hero.atk).toEqual(1);
+    expect(hero.def).toEqual(1);
+  });
 });

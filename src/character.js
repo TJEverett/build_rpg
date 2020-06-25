@@ -27,5 +27,9 @@ export class Character {
 
   gainXp(enemyLevel) {
     this.xp += (10 * enemyLevel / this.lvl);
+    if(this.xp >= 100){
+      this.levelUp();
+      this.xp = this.xp - 100;
+    }
   }
 }

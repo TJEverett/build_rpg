@@ -56,4 +56,17 @@ describe('Leveling Mechanics', () => {
     expect(hero3.xp).toEqual(5);
     expect(hero4.xp).toEqual(10);
   });
+
+  test('should level up the character when their xp variable is equal to or greater than 100', () => {
+    let hero1 = new Character("hero1");
+    hero1.xp = 90;
+    hero1.gainXp(1);
+    let hero2 = new Character("hero2");
+    hero2.xp = 95;
+    hero2.gainXp(1);
+    expect(hero1.lvl).toEqual(2);
+    expect(hero1.xp).toEqual(0);
+    expect(hero2.lvl).toEqual(2);
+    expect(hero2.xp).toEqual(5);
+  });
 });

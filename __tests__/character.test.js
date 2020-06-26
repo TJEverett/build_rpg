@@ -9,19 +9,24 @@ describe('Character Creation', () => {
     expect(hero.spd).toEqual(0);
   });
 
-  test('should create 4 heros with different stats', () => {
+  test('should create 2 heros with different stats', () => {
     let hero1 = new Character("hero1");
     hero1.create("attack");
     let hero2 = new Character("hero2");
-    hero2.create("attack");
-    let hero3 = new Character("hero3");
-    hero3.create("defense");
-    let hero4 = new Character("hero4");
-    hero4.create("defense");
-    console.log(hero1);
-    console.log(hero2);
-    console.log(hero3);
-    console.log(hero4);
+    hero2.create("defense");
+    expect(hero1.atk).toBeGreaterThanOrEqual(4);
+    expect(hero1.atk).toBeLessThanOrEqual(6);
+    expect(hero1.def).toBeGreaterThanOrEqual(1);
+    expect(hero1.def).toBeLessThanOrEqual(3);
+    expect(hero1.spd).toBeGreaterThanOrEqual(1);
+    expect(hero1.spd).toBeLessThanOrEqual(3);
+
+    expect(hero2.atk).toBeGreaterThanOrEqual(3);
+    expect(hero2.atk).toBeLessThanOrEqual(5);
+    expect(hero2.def).toBeGreaterThanOrEqual(2);
+    expect(hero2.def).toBeLessThanOrEqual(4);
+    expect(hero2.spd).toBeGreaterThanOrEqual(1);
+    expect(hero2.spd).toBeLessThanOrEqual(3);
   });
 });
 

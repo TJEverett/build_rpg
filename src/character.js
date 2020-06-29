@@ -30,6 +30,7 @@ export class Character {
     this.lvl += 1;
     this.atk += Math.floor(this.lvl / 2);
     this.def += Math.floor(this.lvl / 2);
+    this.hpMax += (this.lvl * 5);
   }
 
   gainXp(enemyLevel) {

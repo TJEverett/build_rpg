@@ -100,4 +100,15 @@ describe('Battle Mechanics', () => {
     hero.levelUp();
     expect(hero.hpMax).toEqual(10);
   });
+
+  test("should increase hpCurrent up to hpMax without going over", () => {
+    let hero1 = new Character("hero1");
+    hero1.hpMax = 100;
+    hero1.heal(50);
+    let hero2 = new Character("hero2");
+    hero2.hpMax = 100;
+    hero2.heal(150);
+    expect(hero1.hpCurrent).toEqual(50);
+    expect(hero2.hpCurrent).toEqual(100);
+  });
 });

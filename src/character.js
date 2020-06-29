@@ -11,14 +11,19 @@ export class Character {
   }
 
   create(specialty) {
+    this.hpMax = 0;
+    this.atk = 0;
+    this.def = 0;
+    this.spd = 0;
     if (specialty === "attack"){
       this.atk += 1;
     } else if (specialty === "defense"){
       this.def += 1;
     }
-    this.atk += (2 + Math.ceil(Math.random() * 3));
+    this.atk += (Math.ceil(Math.random() * 3) + 2);
     this.def += Math.ceil(Math.random() * 3);
     this.spd += (Math.ceil(Math.random() * 20) / 10 + 1);
+    this.hpMax += (Math.ceil(Math.random() * 21) + 89);
   }
 
   levelUp() {

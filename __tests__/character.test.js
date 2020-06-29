@@ -75,3 +75,11 @@ describe('Leveling Mechanics', () => {
     expect(hero2.xp).toEqual(5);
   });
 });
+
+describe('Battle Mechanics', () => {
+  test('should correctly create a character object with new stats', () => {
+    const hero = new Character("Hiro");
+    expect(hero.hpMax).toEqual(0);
+    expect(hero.hpCurrent).toEqual(0);
+  });
+});

@@ -111,4 +111,15 @@ describe('Battle Mechanics', () => {
     expect(hero1.hpCurrent).toEqual(50);
     expect(hero2.hpCurrent).toEqual(100);
   });
+
+  test('should decrease hpMax atk and def when used', () => {
+    let hero = new Character("Hiro");
+    hero.atk = 5;
+    hero.def = 5;
+    hero.hpMax = 100;
+    hero.weaken();
+    expect(hero.atk).toEqual(4);
+    expect(hero.def).toEqual(4);
+    expect(hero.hpMax).toEqual(95)
+  });
 });

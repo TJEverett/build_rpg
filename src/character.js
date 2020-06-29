@@ -40,4 +40,11 @@ export class Character {
       this.xp = this.xp - 100;
     }
   }
+
+  heal(amount){
+    this.hpCurrent += amount;
+    if(this.hpCurrent > this.hpMax){
+      this.hpCurrent = this.hpMax;
+    }
+  }
 }

@@ -82,4 +82,16 @@ describe('Battle Mechanics', () => {
     expect(hero.hpMax).toEqual(0);
     expect(hero.hpCurrent).toEqual(0);
   });
+
+  test('check that new stats are randomized correctly', () => {
+    let hero1 = new Character("hero1");
+    hero1.create("attack");
+    let hero2 = new Character("hero2");
+    hero2.create("defense");
+    expect(hero1.hpMax).toBeGreaterThanOrEqual(90);
+    expect(hero1.hpMax).toBeLessThanOrEqual(110);
+
+    expect(hero2.hpMax).toBeGreaterThanOrEqual(90);
+    expect(hero2.hpMax).toBeLessThanOrEqual(110);
+  });
 });

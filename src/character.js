@@ -47,4 +47,10 @@ export class Character {
       this.hpCurrent = this.hpMax;
     }
   }
+
+  weaken() {
+    this.atk -= Math.ceil(this.lvl / 2);
+    this.def -= Math.ceil(this.lvl / 2);
+    this.hpMax -= (this.lvl * 5);
+  }
 }

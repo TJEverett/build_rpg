@@ -94,4 +94,10 @@ describe('Battle Mechanics', () => {
     expect(hero2.hpMax).toBeGreaterThanOrEqual(90);
     expect(hero2.hpMax).toBeLessThanOrEqual(110);
   });
+
+  test('should increase hpMax when levelUp prototype is used', () => {
+    let hero = new Character("Hiro");
+    hero.levelUp();
+    expect(hero.hpMax).toEqual(10);
+  });
 });

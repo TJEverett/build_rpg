@@ -1,6 +1,8 @@
 export class Character {
   constructor(name) {
     this.name = name;
+    this.hpMax = 0;
+    this.hpCurrent = 0;
     this.atk = 0;
     this.def = 0;
     this.spd = 0;

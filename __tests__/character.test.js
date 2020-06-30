@@ -1,4 +1,5 @@
 import { Character } from './../src/character.js';
+import { Battle } from './../src/battle.js';
 
 describe('Character Creation', () => {
   test('should correctly create a character object', () => {
@@ -121,5 +122,17 @@ describe('Battle Mechanics', () => {
     expect(hero.atk).toEqual(4);
     expect(hero.def).toEqual(4);
     expect(hero.hpMax).toEqual(95)
+  });
+
+  test('should create a battle object by taking input of 2 character objects', () => {
+    let hero = new Character("Hiro");
+    hero.hpMax = 100;
+    let enemy = new Character("enemy");
+    enemy.hpMax = 93;
+    let fight = new Battle(hero, enemy);
+    expect(fight.player).toEqual(hero);
+    expect(fight.computer).toEqual(enemy);
+    expect(fight.player.hpCurrent).toEqual(100);
+    expect(fight.computer.hpCurrent).toEqual(93);
   });
 });

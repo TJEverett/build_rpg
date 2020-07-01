@@ -165,4 +165,76 @@ describe('Battle Mechanics', () => {
     expect(fight.player.hpCurrent).toEqual(92);
     expect(fight.computer.hpCurrent).toEqual(100);
   });
+
+  test('should correctly go through a turn and damage both characters', () => {
+    let hero = new Character("Hiro");
+    hero.hpMax = 100;
+    hero.atk = 5;
+    hero.def = 2;
+    hero.spd = 2.5;
+    let enemy = new Character("enemy");
+    enemy.hpMax = 100;
+    enemy.atk = 5;
+    enemy.def = 2;
+    enemy.spd = 2.5;
+    let fight = new Battle(hero, enemy);
+    let answer = fight.turn();
+    expect(fight.player.hpCurrent).toEqual(92);
+    expect(fight.computer.hpCurrent).toEqual(92);
+    expect(answer).toEqual("turn complete");
+  });
+
+  test('should fail to start turn', () => {
+    let hero = new Character("Hiro");
+    hero.hpMax = 0;
+    hero.atk = 5;
+    hero.def = 2;
+    hero.spd = 2.5;
+    let enemy = new Character("enemy");
+    enemy.hpMax = 0;
+    enemy.atk = 5;
+    enemy.def = 2;
+    enemy.spd = 2.5;
+    let fight = new Battle(hero, enemy);
+    let answer = fight.turn();
+    expect(fight.player.hpCurrent).toEqual(0);
+    expect(fight.computer.hpCurrent).toEqual(0);
+    expect(answer).toEqual("a character is already dead");
+  });
+
+  test('should kill computer but not damage player', () => {
+    let hero = new Character("Hiro");
+    hero.hpMax = 100;
+    hero.atk = 5;
+    hero.def = 2;
+    hero.spd = 3;
+    let enemy = new Character("enemy");
+    enemy.hpMax = 8;
+    enemy.atk = 5;
+    enemy.def = 2;
+    enemy.spd = 2.5;
+    let fight = new Battle(hero, enemy);
+    let answer = fight.turn();
+    expect(fight.player.hpCurrent).toEqual(100);
+    expect(fight.computer.hpCurrent).toEqual(0);
+    expect(answer).toEqual("you win");
+  });
+
+  test('should kill player but not damage computer', () => {
+    let hero = new Character("Hiro");
+    hero.hpMax = 8;
+    hero.atk = 5;
+    hero.def = 2;
+    hero.spd = 2.5;
+    let enemy = new Character("enemy");
+    enemy.hpMax = 100;
+    enemy.atk = 5;
+    enemy.def = 2;
+    enemy.spd = 3;
+    let fight = new Battle(hero, enemy);
+    let answer = fight.turn();
+    expect(fight.player.hpCurrent).toEqual(0);
+    expect(fight.computer.hpCurrent).toEqual(100);
+    expect(answer).toEqual("you lose");
+  });
 });

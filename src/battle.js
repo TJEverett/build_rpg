@@ -3,7 +3,7 @@ export class Battle {
     this.player = hero;
     this.computer = enemy;
     this.player.heal(this.player.hpMax);
-    this.computer.heal(this.player.hpMax);
+    this.computer.heal(this.computer.hpMax);
   }
 
   damage(mode){

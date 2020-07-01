@@ -150,4 +150,19 @@ describe('Battle Mechanics', () => {
     expect(fight.player.hpCurrent).toEqual(100);
     expect(fight.computer.hpCurrent).toEqual(91);
   });
+
+  test('should make the player lose hpCurrent based on the computers atk', () => {
+    let hero = new Character("Hiro");
+    hero.hpMax = 100;
+    hero.atk = 5;
+    hero.def = 2;
+    let enemy = new Character("enemy");
+    enemy.hpMax = 100;
+    enemy.atk = 5;
+    enemy.def = 1;
+    let fight = new Battle(hero, enemy);
+    fight.damage("defend");
+    expect(fight.player.hpCurrent).toEqual(92);
+    expect(fight.computer.hpCurrent).toEqual(100);
+  });
 });

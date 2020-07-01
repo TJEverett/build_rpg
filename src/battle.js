@@ -10,6 +10,8 @@ export class Battle {
     // mode should be "attack" or "defend" as the player would see it
     if(mode === "attack"){
       this.computer.hpCurrent -= ((this.player.atk * 2) - this.computer.def);
+    } else if (mode === "defend"){
+      this.player.hpCurrent -= ((this.computer.atk * 2) - this.player.def);
     }
   }
 }
